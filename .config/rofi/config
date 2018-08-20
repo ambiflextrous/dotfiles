@@ -1,0 +1,20 @@
+! Basic Definitions
+rofi.bw: 0
+rofi.color-enabled: true
+rofi.padding: 300
+rofi.width: 100
+rofi.lines: 10
+rofi.separator-style: none
+rofi.font: Liberation Mono 18
+rofi.hide-scrollbar: true
+rofi.opacity: 90
+rofi.eh : 1
+
+
+! Window Colors
+rofi.color-window: #000000, #000000
+
+! State Colors
+! state                  rowbgcolor(par)     textcolor   rowbgcolor(impar)     rowfgcolor       hovercolor
+rofi.color-normal:       #000000,            #fafafa,    #000000,              #000000,         #c9510c
+

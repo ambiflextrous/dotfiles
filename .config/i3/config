@@ -1,0 +1,144 @@
+# #---- BASIC DEFINTIONS ----# #
+# Needed for i3-gaps
+for_window [class="^.*"] border pixel 2
+gaps inner 6
+gaps outer 6
+set $mod Mod4
+set $term $TERMINAL
+set $browser $BROWSER
+font pango:Liberation Mono 8
+
+
+#Pulse Audio controls
+bindsym $mod+Shift+v exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym $mod+v exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
+bindsym $mod+m exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
+
+
+# Autostart apps
+exec_always feh --bg-scale ~/Pictures/Dog.png
+exec_always compton -f
+exec_always wal -i ~/Pictures/Dog.png
+exec_always wal -R
+
+
+ # #---- COLORS ----# #
+# Github colorscheme
+set $black #000000
+set $gorilla #cccccc
+set $cat #333
+set $skin #f5f5f5
+hide_edge_borders none
+
+# Window colors
+# class                     border                  background      text        indicator       child_border   
+client.focused              $gorilla                $gorilla        $black      $black          $black 
+client.unfocused            $black                  $black          $black      $black          $black 
+client.focused_inactive     $black                  $black          $black      $black          $black 
+client.urgent               $black                  $black          $black      $black          $black 
+
+
+
+ #---- BASIC BINDINGS ----# #
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Escape exec poweroff
+bindsym $mod+w exec $browser
+bindsym $mod+b exec i3lock
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+q kill
+bindsym $mod+d exec rofi -show run 
+
+bindsym $mod+h focus left
+bindsym $mod+Shift+h move left 100
+
+bindsym $mod+j focus down
+bindsym $mod+Shift+j move down 100
+
+bindsym $mod+k focus up
+bindsym $mod+Shift+k move up 100
+
+bindsym $mod+l focus right
+bindsym $mod+Shift+l move right 100
+
+bindsym $mod+apostrophe split h
+bindsym $mod+slash split v
+
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Escape exec i3-msg exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+n layout toggle split
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+        bindsym h       resize shrink width 50 px 
+        bindsym j       resize grow height 50 px 
+        bindsym k         resize shrink height 50 px
+        bindsym l      resize grow width 50 px
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Escape mode "default"
+}
+
+
+# #---- WORKSPACE BINDINGS ----# #
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
