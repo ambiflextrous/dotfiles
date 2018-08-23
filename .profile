@@ -25,3 +25,4 @@ export BROWSER="firefox"
 export TERMINAL="st"
 export VISUAL="vim"
 export PATH=$PATH:~/bin/
+export PATH=$PATH:~/scripts/

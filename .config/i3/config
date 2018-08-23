@@ -24,7 +24,7 @@ exec_always feh --bg-scale ~/Pictures/Dog.png
 exec_always compton -f
 exec_always wal -i ~/Pictures/Dog.png
 exec_always wal -R
-
+exec_always mpd
 
  # #---- COLORS ----# #
 # Github colorscheme
@@ -45,12 +45,17 @@ client.urgent               $black                  $black          $black      
 
  #---- BASIC BINDINGS ----# #
 bindsym $mod+Return exec $term
-bindsym $mod+Shift+Escape exec poweroff
-bindsym $mod+w exec $browser
+bindsym $mod+r exec $term -e ranger
 bindsym $mod+b exec i3lock
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run 
+bindsym $mod+Shift+m exec $term -e ncmpcpp
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Escape exec poweroff
+bindsym $mod+e exec i3-msg exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
 
 bindsym $mod+h focus left
 bindsym $mod+Shift+h move left 100
@@ -67,10 +72,6 @@ bindsym $mod+Shift+l move right 100
 bindsym $mod+apostrophe split h
 bindsym $mod+slash split v
 
-bindsym $mod+f fullscreen toggle
-bindsym $mod+Escape exec i3-msg exit
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -91,7 +92,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
+bindsym $mod+x mode "resize"
 
 mode "resize" {
         bindsym h       resize shrink width 50 px 

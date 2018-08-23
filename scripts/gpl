@@ -1,0 +1,35 @@
+#!/bin/bash
+# gpl stands for Gerenciador de pacotes latex 
+# it's a script for automating search, install and update with tlmgr command
+# Created by Hugo Wesley
+
+# read user input and save to package variable
+PACKAGE=${1}
+
+# run seach command with stored variable
+echo "Searching ..."
+SEARCH=$(tlmgr search --global --file $PACKAGE)
+
+# save output to output.txt file
+echo $SEARCH > ~/scripts/output.txt
+
+# search and save words that end with ':'
+OUTPUT=$(grep -w -o -P '(?!tlmgr|http)[a-z]*(\:)' ~/scripts/output.txt)
+
+clean=${OUTPUT//:/ }
+echo "Installing missing packages ..."
+
+tlmgr install $clean
+
+echo "Updating ..."
+tmlgr update --self --all
+tmlgr path add
+fmtutil-sys --all
+
+echo "Finished."
+
+
+
+
+
+
