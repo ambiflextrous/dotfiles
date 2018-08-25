@@ -51,7 +51,7 @@ bindsym $mod+w exec $browser
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run 
-bindsym $mod+m exec $term -e ncmpcpp
+bindsym $mod+m exec $term -e ncmpcpp -b ~/.config/ncmpcpp/bindings
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+e exec poweroff
 bindsym $mod+Shift+d exec reboot
