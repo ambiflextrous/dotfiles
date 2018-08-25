@@ -12,7 +12,7 @@ font pango:Liberation Mono 8
 #Pulse Audio controls
 bindsym $mod+Shift+v exec --no-startup-id pactl -- set-sink-volume 0 +5% #increase sound volume
 bindsym $mod+v exec --no-startup-id pactl -- set-sink-volume 0 -5% #decrease sound volume
-bindsym $mod+m exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym $mod+Shift+m exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
@@ -47,13 +47,14 @@ client.urgent               $black                  $black          $black      
 bindsym $mod+Return exec $term
 bindsym $mod+r exec $term -e ranger
 bindsym $mod+b exec i3lock
+bindsym $mod+w exec $browser
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+q kill
 bindsym $mod+d exec rofi -show run 
-bindsym $mod+Shift+m exec $term -e ncmpcpp
+bindsym $mod+m exec $term -e ncmpcpp
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Escape exec poweroff
-bindsym $mod+e exec i3-msg exit
+bindsym $mod+Shift+e exec poweroff
+bindsym $mod+Shift+d exec reboot
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
