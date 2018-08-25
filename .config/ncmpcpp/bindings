@@ -40,3 +40,18 @@ def_key "s"
 
 def_key "q"
     quit
+
+def_key "p"
+    previous
+
+def_key "n"
+    next
+
+def_key "space"
+    pause
+
+def_key "f"
+    seek_forward
+
+def_key "b"
+    seek_backward
