@@ -10,16 +10,21 @@ PACKAGE=${1}
 echo "Searching ..."
 SEARCH=$(tlmgr search --global --file $PACKAGE)
 
-# save output to output.txt file
-echo $SEARCH > ~/scripts/output.txt
+# save output log.txt file
+st -e bash -c 'touch $HOME/log.txt && exit; exec bash'
+echo $SEARCH > ~/log.txt
 
 # search and save words that end with ':'
-OUTPUT=$(grep -w -o -P '(?!tlmgr|http)[a-z]*(\:)' ~/scripts/output.txt)
+OUTPUT=$(grep -w -o -P '(?!tlmgr|http)[a-z]*(\:)' ~/log.txt)
 
 clean=${OUTPUT//:/ }
 echo "Installing missing packages ..."
 
 tlmgr install $clean
+
+# cleaning logs
+echo "Cleaning logs..."
+st -e bash -c 'rm $HOME/log.txt && exit; exec bash'
 
 echo "Updating ..."
 tmlgr update --self --all
