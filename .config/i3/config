@@ -57,6 +57,7 @@ bindsym $mod+Shift+e exec poweroff
 bindsym $mod+Shift+d exec reboot
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+bindsym $mod+g exec nautilus
 
 bindsym $mod+h focus left
 bindsym $mod+Shift+h move left 100

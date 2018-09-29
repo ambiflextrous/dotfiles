@@ -1,0 +1,47 @@
+#!/bin/bash
+
+help_message(){
+echo "`basename $0` is a command-line modem manager for Movitel modems.
+
+
+Usage: `basename $0` [OPTIONS] COMMANDS
+
+
+OPTIONS
+    --help                      prints help
+
+
+COMMANDS
+    c[onnect]                   connect the modem to the internet.
+    d[isconnect]                disconnect the modem from the internet.
+    r[echarge]                  recharge modem's balance.
+    b[alance]                   check modem's balance.
+    m[odem model]               check modem model.
+
+"
+}
+
+check_balance(){
+    echo 'AT+CSCS="GSM"' | atinout - /dev/ttyUSB0 -
+    echo 'AT+CUSD=1,"*151#",15' | atinout - /dev/ttyUSB0 -
+
+}
+
+check_modem_model(){
+    echo 'ATI' | atinout - /dev/ttyUSB0 -
+}
+
+
+
+
+
+case $1 in 
+    "--help") 
+        help_message;;
+    "b")
+        check_balance;;
+    "m")
+        check_modem_model;;
+esac
+
+

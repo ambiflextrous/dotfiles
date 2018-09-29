@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# Run flux
+# Run xflux 
 xflux -l 15 -g 47 -k 2000
